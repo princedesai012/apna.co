@@ -1,0 +1,32 @@
+.faqSection {
+    margin-top: 2.5rem;
+  }
+  
+  .faqSection h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .faqItem {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .faqQuestion {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 1.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .faqAnswer {
+    padding: 0 0 1.5rem 0;
+    color: #555;
+    line-height: 1.6;
+  }

@@ -1,0 +1,126 @@
+/* Update your .card style */
+.card {
+  background-color: var(--card-background);
+  border-radius: 20px; /* Match the more rounded look */
+  padding: 1.5rem;
+  /* THIS IS THE KEY NEW PROPERTY */
+  box-shadow: 0 8px 24px rgba(123, 44, 191, 0.08);
+  width: 100%;
+  position:relative; /* make sure it's not sticky or fixed */
+  box-sizing: border-box;
+}
+  
+  .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+  }
+  
+  /* For RatingsCard */
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+  
+  .statItem {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .slotAvailable {
+    text-align: center;
+    color: var(--primary-purple);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .ctaButton {
+    width: 100%;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* For ShareCard */
+  .socialIcons {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .socialIcon {
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  
+  .orText {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 1rem 0;
+  }
+  
+  .copyLinkWrapper {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .copyLinkWrapper input {
+    flex: 1;
+    border: none;
+    padding: 0.6rem;
+    background-color: #F9FAFB;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .copyLinkWrapper button {
+    border: none;
+    background-color: #F3F4F6;
+    color: var(--text-primary);
+    padding: 0 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  /* ... other styles ... */
+
+.slotAvailable {
+  text-align: center;
+  color: #7B2CBF; /* Change to the specific purple color */
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.ctaButton {
+  width: 100%;
+  /* This is the correct purple gradient for the button */
+  background: linear-gradient(90deg, #7B2CBF 0%, #9D4EDD 100%);
+  color: white;
+  border: none;
+  padding: 0.9rem; /* Slightly more padding */
+  border-radius: 12px; /* more rounded */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(123, 44, 191, 0.2); /* Add a subtle glow */
+}

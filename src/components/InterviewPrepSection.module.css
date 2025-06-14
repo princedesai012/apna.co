@@ -1,0 +1,69 @@
+.prepSection {
+  background-color: var(--card-background);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(123, 44, 191, 0.08);
+}
+
+.prepSection h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  position: relative;
+  bottom: -1px; /* To make the bottom border align */
+  border-bottom: 2px solid transparent;
+}
+
+.tabs button.active {
+  color: var(--primary-purple);
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-purple);
+}
+
+.accordionItem {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.accordionItem:last-child {
+  border-bottom: none;
+}
+
+.questionButton {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 1.25rem 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.questionButton svg {
+  color: var(--primary-purple);
+}
+
+.answer {
+  padding: 0 0.5rem 1.25rem 0.5rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

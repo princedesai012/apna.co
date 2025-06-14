@@ -1,0 +1,7 @@
+.mainContent {
+  flex: 1; /* Takes up remaining space */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0; /* <-- This is the crucial fix! */
+}
