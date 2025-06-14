@@ -1,80 +1,89 @@
 .cheatsheetSection {
-    padding: 1.5rem;
-    border-radius: 20px;
-    margin-top: 1.5rem; /* This will be a child of InterviewPage, so we remove the margin from here */
-    
-    /* The Glassmorphism Effect */
-    background: linear-gradient(106.37deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(123, 44, 191, 0.1);
-  }
-  
-  .cheatsheetSection h3 {
-    margin: 0 0 0.25rem 0;
-    font-size: 1.25rem;
-  }
-  
-  .subtitle {
-    color: var(--text-secondary);
-    margin: 0 0 1.5rem 0;
-    font-size: 0.9rem;
-  }
-  
-  .cardGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-  }
-  
-  .card {
-    background-color: var(--card-background);
-    border-radius: 12px;
-    padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    position: relative; /* For the locked overlay */
-    overflow: hidden; /* Hide blurred content overflow */
-  }
-  
-  .questionText {
-    font-weight: 600;
-    margin: 0 0 0.5rem 0;
-    color: var(--text-primary);
-  }
-  
-  .answerText {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin: 0;
-  }
-  
-  .lockedContent {
-    filter: blur(4px); /* Blur the text underneath */
-    opacity: 0.5;
-  }
-  
-  .lockedOverlay {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--text-primary);
-    padding: 1rem;
-  }
-  
-  .lockedOverlay h4 {
-    margin: 0.5rem 0;
-  }
-  
-  .lockedOverlay p {
-    font-size: 0.8rem;
-    margin: 0;
-    color: var(--text-secondary);
-  }
+  padding: 1.5rem;
+  border-radius: 20px;
+  margin-top: 1.5rem;
+
+  /* Glassmorphism Effect */
+  background: linear-gradient(106.37deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* for Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(123, 44, 191, 0.1);
+}
+
+.cheatsheetSection h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.questionText {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.answerText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.lockedContent {
+  filter: blur(4px);
+  opacity: 0.5;
+  pointer-events: none; /* Prevent interaction */
+}
+
+.lockedOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.6); /* subtle overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-primary);
+  padding: 1rem;
+  z-index: 1;
+}
+
+.lockedOverlay h4 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.lockedOverlay p {
+  font-size: 0.8rem;
+  margin: 0;
+  color: var(--text-secondary);
+}

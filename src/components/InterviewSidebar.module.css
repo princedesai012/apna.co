@@ -1,16 +1,24 @@
 .sidebar {
-    width: 350px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    position: relative;
-    top: 10px; /* Adjust based on header height */
+  width: 350px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  top: 10px; /* Adjust based on your header height */
+  padding: 1rem;
+  background-color: var(--card-background); /* Optional: for visual clarity */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Responsive for tablets and below */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 100%;
+    top: auto;
+    position: static;
+    padding: 1rem 0; /* Reduce horizontal padding */
+    margin-top: 1.5rem; /* Add spacing below main content */
   }
-  
-  @media (max-width: 992px) {
-    .sidebar {
-      width: 100%;
-      position: relative;
-    }
-  }
+}

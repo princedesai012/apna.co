@@ -1,111 +1,164 @@
-/* Update your .card style */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --primary-purple: #7B2CBF;
+  --primary-purple-light: #9D4EDD;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --border-color: #D1D5DB;
+  --card-background: #ffffff;
+}
+
+/* General Resets */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-primary);
+}
+
+/* -------------------- Header -------------------- */
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem;
+  font-size: 15px;
+  z-index: 1000;
+}
+
+.header .container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.logo {
+  height: 45px;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-weight: 500;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav a:hover {
+  color: var(--primary-purple);
+}
+
+.newTag {
+  background-color: #ffedd5;
+  color: #d97706;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px #e5e7eb;
+}
+
+.searchIcon {
+  color: #6b7280;
+}
+
+.searchBar input {
+  border: none;
+  background: none;
+  outline: none;
+  margin-left: 0.5rem;
+  width: 200px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.employerLink {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.employerLink:hover {
+  color: var(--primary-purple);
+  text-decoration: underline;
+}
+
+.candidateButton {
+  background-color: #1f9d55;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.candidateButton:hover {
+  background-color: #15803d;
+}
+
+/* -------------------- Card -------------------- */
 .card {
   background-color: var(--card-background);
-  border-radius: 20px; /* Match the more rounded look */
+  border-radius: 20px;
   padding: 1.5rem;
-  /* THIS IS THE KEY NEW PROPERTY */
   box-shadow: 0 8px 24px rgba(123, 44, 191, 0.08);
   width: 100%;
-  position:relative; /* make sure it's not sticky or fixed */
+  position: relative;
   box-sizing: border-box;
 }
-  
-  .title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-  }
-  
-  /* For RatingsCard */
-  .stats {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-  }
-  
-  .statItem {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  
-  .slotAvailable {
-    text-align: center;
-    color: var(--primary-purple);
-    font-weight: 500;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-  }
-  
-  .ctaButton {
-    width: 100%;
-    background: var(--primary-gradient);
-    color: white;
-    border: none;
-    padding: 0.8rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  /* For ShareCard */
-  .socialIcons {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-  .socialIcon {
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-  }
-  
-  .orText {
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin: 1rem 0;
-  }
-  
-  .copyLinkWrapper {
-    display: flex;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .copyLinkWrapper input {
-    flex: 1;
-    border: none;
-    padding: 0.6rem;
-    background-color: #F9FAFB;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-  }
-  
-  .copyLinkWrapper button {
-    border: none;
-    background-color: #F3F4F6;
-    color: var(--text-primary);
-    padding: 0 1.5rem;
-    cursor: pointer;
-    font-weight: 500;
-  }
 
-  /* ... other styles ... */
+.title {
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.2rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
 
 .slotAvailable {
   text-align: center;
-  color: #7B2CBF; /* Change to the specific purple color */
+  color: var(--primary-purple);
   font-weight: 500;
   font-size: 0.9rem;
   margin-bottom: 1rem;
@@ -113,14 +166,95 @@
 
 .ctaButton {
   width: 100%;
-  /* This is the correct purple gradient for the button */
-  background: linear-gradient(90deg, #7B2CBF 0%, #9D4EDD 100%);
+  background: linear-gradient(90deg, var(--primary-purple) 0%, var(--primary-purple-light) 100%);
   color: white;
   border: none;
-  padding: 0.9rem; /* Slightly more padding */
-  border-radius: 12px; /* more rounded */
+  padding: 0.9rem;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(123, 44, 191, 0.2); /* Add a subtle glow */
+  box-shadow: 0 4px 12px rgba(123, 44, 191, 0.2);
+}
+
+.ctaButton:focus {
+  outline: 2px solid var(--primary-purple-light);
+  outline-offset: 2px;
+}
+
+/* -------------------- Share Card -------------------- */
+.socialIcons {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.socialIcon {
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background-color: var(--primary-purple);
+  transition: transform 0.2s ease;
+}
+
+.socialIcon:hover,
+.socialIcon:focus {
+  background-color: var(--primary-purple-light);
+  transform: scale(1.1);
+}
+
+.orText {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.copyLinkWrapper {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.copyLinkWrapper input {
+  flex: 1;
+  border: none;
+  padding: 0.6rem;
+  background-color: #F9FAFB;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.copyLinkWrapper button {
+  border: none;
+  background-color: #F3F4F6;
+  color: var(--text-primary);
+  padding: 0 1.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* -------------------- Responsive Adjustments -------------------- */
+@media (max-width: 768px) {
+  .nav {
+    gap: 1rem;
+  }
+
+  .searchBar input {
+    width: 140px;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .ctaButton {
+    font-size: 0.95rem;
+  }
 }

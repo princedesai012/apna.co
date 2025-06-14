@@ -1,6 +1,6 @@
-/* Define the new color palette */
+/* === Color Palette === */
 :root {
-  --background-color: #F7F2FF; /* Light lavender background */
+  --background-color: #F7F2FF;
   --card-background: #FFFFFF;
   --primary-purple: #7B2CBF;
   --primary-gradient: linear-gradient(90deg, #C77DFF 0%, #7B2CBF 100%);
@@ -10,7 +10,7 @@
   --green-accent: #04D361;
 }
 
-/* Apply global styles */
+/* === Base Styles === */
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,14 +18,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color); /* Use the variable */
+  background-color: var(--background-color);
   color: var(--text-primary);
   overflow-x: hidden;
 }
-.App{
+
+.App {
   overflow-x: hidden;
 }
-/* Update main layout container */
+
+/* === Main Layout === */
 .main-layout {
   max-width: 1100px;
   margin: 1.5rem auto;
@@ -35,32 +37,39 @@ body {
   align-items: flex-start;
 }
 
-/* --- Responsiveness (can be refined later) --- */
-/* ... keep all your existing styles at the top ... */
+/* Optional card styling if needed */
+.card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
 
-/* --- Responsiveness --- */
+/* === Responsive Breakpoints === */
 
-/* For tablets and smaller devices (<= 992px) */
+/* Tablet (≤ 992px) */
 @media (max-width: 992px) {
   .main-layout {
-    /* Change the layout from a row to a column */
     flex-direction: column;
     margin-top: 1.5rem;
   }
 
-  /* Make the sidebar full-width and not sticky */
-  .main-layout > aside { /* This targets the <InterviewSidebar> */
+  .main-layout > aside {
     width: 100%;
-    position: static; /* Override the 'sticky' position */
-    margin-top: 1.5rem; /* Add some space between main content and the sidebar */
+    position: static;
+    margin-top: 1.5rem;
   }
 }
 
-/* For small mobile phones (<= 576px) */
+/* Small Devices (≤ 576px) */
 @media (max-width: 576px) {
   .main-layout {
-    /* Reduce the side padding on very small screens */
-    padding: 0 1rem;
+    padding: 0 0.75rem;
     margin-top: 1rem;
+  }
+
+  .card {
+    padding: 0.75rem;
   }
 }

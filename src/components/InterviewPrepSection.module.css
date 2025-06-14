@@ -5,13 +5,16 @@
   box-shadow: 0 8px 24px rgba(123, 44, 191, 0.08);
 }
 
+/* Section Title */
 .prepSection h3 {
   margin: 0 0 1rem 0;
   font-size: 1.25rem;
 }
 
+/* Tabs Navigation */
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 1rem;
@@ -25,8 +28,9 @@
   font-size: 1rem;
   color: var(--text-secondary);
   position: relative;
-  bottom: -1px; /* To make the bottom border align */
+  bottom: -1px;
   border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .tabs button.active {
@@ -35,6 +39,7 @@
   border-bottom: 2px solid var(--primary-purple);
 }
 
+/* Accordion Items */
 .accordionItem {
   border-bottom: 1px solid var(--border-color);
 }
@@ -58,12 +63,50 @@
   color: var(--text-primary);
 }
 
+.questionButton:hover {
+  background-color: rgba(123, 44, 191, 0.05);
+  border-radius: 8px;
+}
+
 .questionButton svg {
   color: var(--primary-purple);
+  transition: transform 0.3s ease;
+}
+
+.questionButton.open svg {
+  transform: rotate(180deg);
 }
 
 .answer {
   padding: 0 0.5rem 1.25rem 0.5rem;
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+/* === Responsive Enhancements === */
+@media (max-width: 768px) {
+  .prepSection {
+    padding: 1rem;
+  }
+
+  .tabs {
+    gap: 0.25rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .tabs button {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .questionButton {
+    font-size: 0.95rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .answer {
+    font-size: 0.9rem;
+  }
 }
