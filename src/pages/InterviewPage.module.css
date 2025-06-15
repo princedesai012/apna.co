@@ -1,7 +1,193 @@
+/* === Main Content Layout === */
 .mainContent {
-  flex: 1; /* Takes up remaining space */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  min-width: 0; /* <-- This is the crucial fix! */
+  gap: var(--spacing-lg);
+  min-width: 0; /* Prevents overflow issues */
+  padding: 0;
+  width: 100%;
+}
+
+/* === Content Sections === */
+.mainContent > section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.mainContent > section > h1,
+.mainContent > section > h2,
+.mainContent > section > h3 {
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: 1.2;
+}
+
+.mainContent > section > h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+}
+
+.mainContent > section > h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+}
+
+.mainContent > section > h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+}
+
+/* === Content Cards === */
+.mainContent .content-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.mainContent .content-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* === Content Grid === */
+.mainContent .content-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.mainContent .content-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.mainContent .content-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* === Content List === */
+.mainContent .content-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.mainContent .content-list-item {
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-background);
+  transition: border-color 0.2s ease;
+}
+
+.mainContent .content-list-item:hover {
+  border-color: var(--primary-purple);
+}
+
+/* === Responsive Adjustments === */
+
+/* Large Desktop (≥ 1200px) */
+@media (min-width: 1200px) {
+  .mainContent {
+    gap: var(--spacing-xl);
+  }
+  
+  .mainContent .content-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+/* Desktop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .mainContent .content-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+  .mainContent {
+    gap: var(--spacing-md);
+    order: 1; /* Ensure main content appears first on mobile */
+  }
+  
+  .mainContent .content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .mainContent .content-grid-2,
+  .mainContent .content-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .mainContent > section > h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .mainContent > section > h2 {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Small Tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .mainContent .content-card {
+    padding: var(--spacing-md);
+  }
+  
+  .mainContent .content-list-item {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* Mobile (≤ 576px) */
+@media (max-width: 576px) {
+  .mainContent {
+    gap: var(--spacing-sm);
+  }
+  
+  .mainContent .content-card {
+    padding: var(--spacing-md);
+    border-radius: 8px;
+  }
+  
+  .mainContent .content-grid {
+    gap: var(--spacing-sm);
+  }
+  
+  .mainContent > section {
+    gap: var(--spacing-sm);
+  }
+  
+  .mainContent > section > h1 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .mainContent > section > h2 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .mainContent > section > h3 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+  }
+}
+
+/* Extra Small Mobile (≤ 375px) */
+@media (max-width: 375px) {
+  .mainContent {
+    gap: var(--spacing-xs);
+  }
+  
+  .mainContent .content-card {
+    padding: var(--spacing-sm);
+  }
+  
+  .mainContent .content-list-item {
+    padding: var(--spacing-xs);
+  }
 }

@@ -11,38 +11,83 @@
   --border-gray: #e5e7eb;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+/* Header container */
 .header {
   background-color: #ffffff;
   border-bottom: 1px solid var(--border-gray);
-  padding: 1rem;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   z-index: 1000;
   position: sticky;
   top: 0;
   width: 100%;
+  padding: 0.75rem 1rem;
 }
 
 .container {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  position: relative;
 }
 
 .logo {
-  height: 45px;
+  height: 35px;
+  flex-shrink: 0;
 }
 
-.nav {
+/* Hamburger Menu Button */
+.hamburgerButton {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.hamburgerLine {
+  width: 20px;
+  height: 2px;
+  background-color: var(--primary-text);
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Hamburger animation when menu is open */
+.hamburgerButton.open .hamburgerLine:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburgerButton.open .hamburgerLine:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerButton.open .hamburgerLine:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Desktop Navigation */
+.nav {
+  display: none; /* Hidden on mobile by default */
   gap: 2rem;
   align-items: center;
   font-weight: 500;
-  flex-wrap: wrap;
 }
 
 .nav a {
@@ -52,41 +97,184 @@
   align-items: center;
   gap: 0.3rem;
   transition: color 0.2s;
+  white-space: nowrap;
+  font-size: 14px;
 }
 
 .nav a:hover {
   color: var(--primary-purple);
 }
 
+/* Mobile Navigation Menu */
+.mobileNav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-gray);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  padding: 1rem;
+}
+
+.mobileNav.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileNavContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-gray);
+}
+
+.mobileNavLinks a {
+  text-decoration: none;
+  color: var(--primary-text);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.mobileNavLinks a:hover {
+  color: var(--primary-purple);
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+
+.mobileSearchBar {
+  display: flex;
+  align-items: center;
+  background-color: var(--gray-light);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-gray);
+  width: 100%;
+}
+
+.mobileSearchBar .searchIcon {
+  color: #6b7280;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.mobileSearchBar input {
+  border: none;
+  background: none;
+  outline: none;
+  margin-left: 0.75rem;
+  width: 100%;
+  font-size: 14px;
+  color: var(--primary-text);
+}
+
+.mobileSearchBar input::placeholder {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.mobileEmployerLink {
+  text-decoration: none;
+  color: var(--primary-text);
+  font-weight: 500;
+  transition: color 0.2s, background-color 0.2s;
+  font-size: 16px;
+  text-align: center;
+  padding: 0.75rem;
+  border: 1px solid var(--border-gray);
+  border-radius: 6px;
+  display: block;
+}
+
+.mobileEmployerLink:hover {
+  color: var(--primary-purple);
+  background-color: var(--gray-light);
+}
+
+.mobileCandidateButton {
+  background-color: var(--green);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.2s ease-in-out;
+  text-align: center;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileCandidateButton:hover {
+  background-color: var(--green-dark);
+}
+
+.mobileCandidateButton:active {
+  transform: translateY(1px);
+}
+
 .newTag {
   background-color: var(--highlight-bg);
   color: var(--highlight-orange);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.7rem;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.65rem;
   font-weight: 600;
   margin-left: 0.25rem;
 }
 
+/* Desktop Actions section */
 .actions {
-  display: flex;
+  display: none; /* Hidden on mobile, replaced by hamburger */
   align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .searchBar {
   display: flex;
   align-items: center;
   background-color: var(--gray-light);
-  padding: 0.4rem 1rem;
-  border-radius: 12px;
-  box-shadow: 0 0 0 1px var(--border-gray);
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-gray);
+  width: 180px;
+  min-width: 180px;
 }
 
 .searchIcon {
   color: #6b7280;
+  font-size: 12px;
+  flex-shrink: 0;
 }
 
 .searchBar input {
@@ -94,9 +282,14 @@
   background: none;
   outline: none;
   margin-left: 0.5rem;
-  width: 180px;
-  font-size: 14px;
+  width: 100%;
+  font-size: 12px;
   color: var(--primary-text);
+}
+
+.searchBar input::placeholder {
+  color: #9ca3af;
+  font-size: 12px;
 }
 
 .employerLink {
@@ -104,6 +297,8 @@
   color: var(--primary-text);
   font-weight: 500;
   transition: color 0.2s;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 .employerLink:hover {
@@ -115,69 +310,189 @@
   background-color: var(--green);
   color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.625rem 1.25rem;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
-  transition: background-color 0.2s ease-in-out;
+  font-size: 10px;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  white-space: nowrap;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .candidateButton:hover {
   background-color: var(--green-dark);
 }
 
-/* ---------------- Responsive Styles ------------------ */
+.candidateButton:active {
+  transform: translateY(1px);
+}
 
-@media (max-width: 1024px) {
+/* Overlay for mobile menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tablet - Show desktop actions */
+@media (min-width: 768px) {
+  .hamburgerButton {
+    display: none;
+  }
+  
+  .mobileNav {
+    display: none;
+  }
+  
+  .overlay {
+    display: none;
+  }
+  
   .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    gap: 1.5rem;
   }
-
+  
+  .logo {
+    height: 40px;
+  }
+  
   .nav {
-    gap: 1rem;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    display: flex;
+    gap: 1.5rem;
   }
-
+  
+  .nav a {
+    font-size: 14px;
+  }
+  
   .actions {
-    width: 100%;
-    justify-content: space-between;
+    display: flex;
+    gap: 1rem;
   }
-
+  
+  .searchBar {
+    width: 200px;
+    min-width: 200px;
+    padding: 0.4rem 1rem;
+  }
+  
   .searchBar input {
-    width: 100px;
+    font-size: 13px;
+  }
+  
+  .searchBar input::placeholder {
+    font-size: 13px;
+  }
+  
+  .candidateButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 14px;
   }
 }
 
-@media (max-width: 600px) {
+/* Desktop */
+@media (min-width: 1024px) {
+  .header {
+    padding: 1rem;
+  }
+  
+  .container {
+    gap: 2rem;
+  }
+  
+  .logo {
+    height: 45px;
+  }
+  
   .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    gap: 0.75rem;
+    gap: 2rem;
   }
-
+  
+  .nav a {
+    font-size: 15px;
+  }
+  
   .searchBar {
-    width: 100%;
-    padding: 0.3rem 0.75rem;
+    width: 220px;
+    min-width: 220px;
   }
-
+  
   .searchBar input {
-    width: 100%;
-    font-size: 13px;
+    font-size: 14px;
   }
-
+  
+  .searchBar input::placeholder {
+    font-size: 14px;
+  }
+  
   .actions {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: stretch;
+    gap: 1.5rem;
   }
-
+  
   .candidateButton {
-    width: 100%;
-    text-align: center;
+    padding: 0.7rem 1.4rem;
+    font-size: 15px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .container {
+    gap: 3rem;
+  }
+  
+  .nav {
+    gap: 2.5rem;
+  }
+  
+  .searchBar {
+    width: 250px;
+    min-width: 250px;
+  }
+  
+  .candidateButton {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Very small screens adjustments */
+@media (max-width: 360px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .logo {
+    height: 32px;
+  }
+  
+  .hamburgerButton {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .hamburgerLine {
+    width: 18px;
+  }
+  
+  .mobileCandidateButton {
+    padding: 0.875rem 1rem;
+    font-size: 15px;
   }
 }
